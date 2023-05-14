@@ -1,2 +1,2 @@
 # LeetCode
-Solving 150 Problems on leetcode before 2024
+Solving 150 Problems on [leetcode](https://leetcode.com/) before 2024
