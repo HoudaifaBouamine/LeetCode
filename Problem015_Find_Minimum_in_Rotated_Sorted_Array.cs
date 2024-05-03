@@ -1,4 +1,6 @@
-    public class Solution
+namespace Problem015;
+
+public class Solution
     {
 
         public int binary_search(int[] nums,int min,int max)
