@@ -5,13 +5,20 @@ namespace Problem003;
 public class Solution {
     public int[] TwoSum(int[] nums, int target)
     {
-        var l = nums.Select(n => target - n).Intersect(nums).Where(n=>n*2 != target);
-        var n1 = l.First();
-        var i1 = Array.IndexOf(nums, n1);
-        nums[i1] = int.MaxValue;
-        var i2 = Array.IndexOf(nums, target - n1);
-        
-        return new []{i1,i2};
-        
+        var numbers = nums.Select((n, index) => (n, index)).ToArray();
+        Array.Sort(numbers,(num1,num2)=>num1.n.CompareTo(num2.n) );
+
+        var i = 0;
+        var j = nums.Length - 1;
+
+        while (i < j)
+        {
+            var r = numbers[i].n + numbers[j].n;
+            if (r == target) return new[] { i, j };
+            if (r < target) i++;
+            if (r > target) j--;
+        }
+
+        throw new Exception("Not result is found, check the sorting");
     }
 }
